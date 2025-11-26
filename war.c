@@ -111,3 +111,22 @@ int main() {
 #define MAX_MISSOES 3
 #define TAM_NOME 50
 #define TAM_COR 20
+
+// ============================================================================
+// --- Estrutura de Dados ---
+// ============================================================================
+
+// Territorio: Contém as informações de um território no mapa.
+typedef struct {
+    char nome[TAM_NOME];
+    char corExercito[TAM_COR];
+    int numTropas;
+} Territorio;
+
+// Missao: Descreve o objetivo do jogador.
+typedef struct {
+    int id;
+    char descricao[256];
+    char corAlvo[TAM_COR]; // Usado apenas para missões de destruição
+    int territoriosAlvo;   // Usado apenas para missões de conquista
+} Missao;
