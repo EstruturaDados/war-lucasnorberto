@@ -130,3 +130,26 @@ typedef struct {
     char corAlvo[TAM_COR]; // Usado apenas para missões de destruição
     int territoriosAlvo;   // Usado apenas para missões de conquista
 } Missao;
+
+// ============================================================================
+// --- Protótipos das Funções ---
+// ============================================================================
+
+// Funções de setup e gerenciamento de memória:
+Territorio* alocarMapa();
+void inicializarTerritorios(Territorio *mapa);
+void liberarMemoria(Territorio *mapa);
+Missao sortearMissao(const char *corJogador);
+
+// Funções de interface com o usuário:
+void exibirMenuPrincipal(void);
+void exibirMapa(const Territorio *mapa, size_t tamanho);
+void exibirMissao(const Missao *missao);
+
+// Funções de lógica principal do jogo:
+void faseDeAtaque(Territorio *mapa, const char *corJogador);
+void simularAtaque(Territorio *ataque, Territorio *defesa);
+int verificarVitoria(const Territorio *mapa, size_t tamanho, const Missao *missao, const char *corJogador);
+
+// Função utilitária:
+void limparBufferEntrada(void);
